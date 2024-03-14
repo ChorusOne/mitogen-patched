@@ -141,6 +141,7 @@ def is_stdlib_name(modname):
     if _g is None:
         LOG.error('is_stdlib_name: modname: %r', modname)
         LOG.error('is_stdlib_name: module: %r', module)
+        LOG.error('is_stdlib_name: dir(module): %r', dir(module))
         LOG.error('is_stdlib_name: __file__: %r', __file__)
         LOG.error('is_stdlib_name(): getattr(module, \'__file__\', \'\'): %r', _g)
     modpath = os.path.abspath(_g)
