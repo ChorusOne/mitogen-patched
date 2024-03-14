@@ -141,9 +141,13 @@ def is_stdlib_name(modname):
     if _g is None:
         LOG.error('is_stdlib_name: modname: %r', modname)
         LOG.error('is_stdlib_name: module: %r', module)
-        LOG.error('is_stdlib_name: dir(module): %r', dir(module))
+        _attrs = dir(module)
+        LOG.error('is_stdlib_name: dir(module): %r', _attrs)
         LOG.error('is_stdlib_name: __file__: %r', __file__)
         LOG.error('is_stdlib_name(): getattr(module, \'__file__\', \'\'): %r', _g)
+        for _a in _attrs:
+            _g = getattr(module, _a, '')
+            LOG.error('  attr: %r: %r', _a, _g)
     modpath = os.path.abspath(_g)
     return is_stdlib_path(modpath)
 
