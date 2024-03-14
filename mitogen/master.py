@@ -149,7 +149,7 @@ def is_stdlib_name(modname):
             _g = getattr(module, _a, '')
             LOG.error('  attr: %r: %r', _a, _g)
 
-        return False
+        return True
 
     modpath = os.path.abspath(_g)
     return is_stdlib_path(modpath)
